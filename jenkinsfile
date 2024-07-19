@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_COMPOSE = '/usr/local/bin/docker-compose' // Path to Docker Compose
+    }
+
+    stages {
+        stage('Clone repository') {
+            steps {
+                git 'https://github.com/yourusername/site-monitoring.git'
+            }
+        }
+        stage('Deploy with Docker Compose') {
+            steps {
+                sh '${DOCKER_COMPOSE} down'
+                sh '${DOCKER_COMPOSE} up -d'
+            }
+        }
+    }
+}
