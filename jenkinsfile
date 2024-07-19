@@ -2,19 +2,19 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_COMPOSE = '/usr/local/bin/docker-compose' // Path to Docker Compose
+        DOCKER_COMPOSE = 'C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker-compose.exe' // Path to Docker Compose on Windows
     }
 
     stages {
         stage('Clone repository') {
             steps {
-                git 'https://github.com/yourusername/site-monitoring.git'
+                git 'https://github.com/shraiyap/interview1-scanbo.git'
             }
         }
         stage('Deploy with Docker Compose') {
             steps {
-                sh '${DOCKER_COMPOSE} down'
-                sh '${DOCKER_COMPOSE} up -d'
+                bat "${env.DOCKER_COMPOSE} down"
+                bat "${env.DOCKER_COMPOSE} up -d"
             }
         }
     }
