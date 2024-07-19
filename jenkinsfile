@@ -11,7 +11,7 @@ pipeline {
                 git 'https://github.com/shraiyap/interview1-scanbo.git'
             }
         }
-        stage('Deploy with Docker Compose') {
+        stage('Deploy via Docker Compose') {
             steps {
                 bat "${env.DOCKER_COMPOSE} down"
                 bat "${env.DOCKER_COMPOSE} up -d"
