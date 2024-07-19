@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('Clone repository') {
+        stage('Clone the repository') {
             steps {
                 git 'https://github.com/shraiyap/interview1-scanbo.git'
             }
