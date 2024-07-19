@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_COMPOSE = '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker-compose.exe"'// Path to Docker Compose on Windows
+        DOCKER_COMPOSE = '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker-compose.exe"'
     }
 
     stages {
@@ -12,7 +12,7 @@ pipeline {
                 url: 'https://github.com/shraiyap/interview1-scanbo.git'
             }
         }
-        stage('Deploy via Docker Compose') {
+        stage('Deploy the images to   Docker Compose') {
             steps {
                 bat "${env.DOCKER_COMPOSE} down"
                 bat "${env.DOCKER_COMPOSE} up -d"
