@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_COMPOSE = "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker-compose.exe" // Path to Docker Compose on Windows
+        DOCKER_COMPOSE = '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker-compose.exe"'// Path to Docker Compose on Windows
     }
 
     stages {
